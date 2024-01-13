@@ -9,5 +9,9 @@ import './tailwindStyles/tailwind.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+    <div>
+    <h1>Hola</h1>
     <Router />
+    </div>
+
 );
