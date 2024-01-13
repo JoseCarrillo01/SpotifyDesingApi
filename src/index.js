@@ -5,12 +5,11 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.bundle"
 import './tailwindStyles/tailwind.css';
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
-    <h1>Hola</h1>
     <Router />
     </div>
 
