@@ -1,7 +1,6 @@
 {
-  "name": "infofy",
+  "name": "Spotify",
   "version": "0.1.0",
-  "homepage": "https://burni80.github.io/infofy",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
