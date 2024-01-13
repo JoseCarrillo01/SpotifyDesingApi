@@ -1,17 +1,32 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link, Navigate } from "react-router-dom";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import classNames from "classnames";
+import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 
 export default class Navbar extends Component {
   
+  // *CERRAR SESION
+  cerrarSesion = () => {
+    // Limpia los datos almacenados localmente
+    localStorage.clear();
+    
+    // Obtén la función de navegación
+    const navigate = useNavigate();
+    
+    // Redirige al usuario a la ruta '/'
+    navigate('/');
+  };
+
+
     render() {
+
 
         
     return (
@@ -113,15 +128,17 @@ export default class Navbar extends Component {
                           )}
                         </Menu.Item>
                         <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="#"   onClick={this.cerrarSesion}
-                              className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                            >
-                              Sign out
-                            </a>
-                          )}
-                        </Menu.Item>
+  {({ active }) => (
+    <a
+      href="#"
+      onClick={this.cerrarSesion}
+      className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+    >
+      Sign out
+    </a>
+  )}
+</Menu.Item>
+
                       </Menu.Items>
                     </Transition>
                   </Menu>
@@ -134,31 +151,17 @@ export default class Navbar extends Component {
                 {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
                 <Disclosure.Button
                   as="a"
-                  href="#"
+                  href="/inicio"
                   className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                 >
-                  Dashboard
+                  Inicio
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
-                  href="#"
+                  href="/playlists"
                   className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                 >
-                  Team
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-                >
-                  Projects
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-                >
-                  Calendar
+                  Playlist
                 </Disclosure.Button>
               </div>
             </Disclosure.Panel>
